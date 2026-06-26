@@ -39,10 +39,10 @@ export default function Image() {
               textTransform: "uppercase",
             }}
           >
-            Backend Software Engineer
+            Production Backend Engineer
           </span>
           <span style={{ color: "rgba(244,244,245,0.64)", fontSize: 24 }}>
-            Laravel / AWS / MySQL
+            Laravel / AWS / MySQL / Releases
           </span>
         </div>
         <div
@@ -70,8 +70,8 @@ export default function Image() {
               maxWidth: 880,
             }}
           >
-            Laravel/PHP systems, MySQL data flows, AWS infrastructure, and
-            production engineering.
+            Laravel/PHP systems, MySQL data flows, AWS infrastructure, release
+            ownership, and production debugging.
           </p>
         </div>
       </div>

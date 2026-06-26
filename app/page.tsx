@@ -5,10 +5,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Amirul",
+  name: "Muhammad Amirul Bin Yunus",
   jobTitle: "Backend Software Engineer",
   email: "mailto:amirulyunus29@gmail.com",
+  telephone: "+60162081960",
   url: siteUrl,
+  sameAs: ["https://www.linkedin.com/in/amirulyunus"],
   knowsAbout: [
     "Laravel",
     "PHP",
@@ -16,10 +18,31 @@ const jsonLd = {
     "AWS",
     "Ubuntu",
     "Nginx",
+    "PHP-FPM",
     "REST APIs",
-    "Backend systems",
-    "System design",
+    "Query optimization",
+    "Production deployments",
+    "Backend automation",
   ],
+};
+
+type CaseStudy = {
+  title: string;
+  eyebrow: string;
+  background: string;
+  problem: string;
+  responsibilities: string[];
+  challenge: string;
+  decisions?: string[];
+  timeline?: { label: string; text: string }[];
+  dataFlow?: string[];
+  serviceMap?: Record<string, string>;
+  failureModes?: string[];
+  implementation: string[];
+  production: string;
+  lessons: string;
+  impact: string;
+  stack: string[];
 };
 
 const signalCards = [
@@ -27,37 +50,37 @@ const signalCards = [
     label: "Backend",
     value: "Laravel / PHP",
     detail:
-      "Backend-focused software engineer working across APIs, business logic, MySQL data models, and production maintenance.",
+      "Built and maintained production Laravel systems across APIs, business logic, background jobs, and legacy refactoring.",
   },
   {
-    label: "Cloud",
-    value: "AWS + Linux",
+    label: "Production",
+    value: "Weekly Releases",
     detail:
-      "Hands-on with EC2, RDS, S3, Ubuntu, Nginx, deployment environments, logs, and production troubleshooting.",
+      "Owned release coordination, deployment verification, post-release monitoring, and hotfix support for live systems.",
   },
   {
     label: "Database",
     value: "MySQL / SQL",
     detail:
-      "Comfortable with relational schemas, query behavior, reporting flows, forecasting inputs, and debugging data issues.",
+      "Worked on schema migrations, query optimization, reporting workflows, forecasting data, and data integrity checks.",
   },
   {
-    label: "Frontend",
-    value: "Next.js / React",
+    label: "Cloud",
+    value: "AWS + Linux",
     detail:
-      "Enough frontend to ship complete products while keeping the portfolio clearly backend-led.",
+      "Provisioned and supported EC2, ELB, RDS, S3, IAM, CloudWatch, Ubuntu, Nginx, and PHP-FPM environments.",
   },
   {
-    label: "Learning",
-    value: "Docker + System Design",
+    label: "Automation",
+    value: "Scheduler / Queues",
     detail:
-      "Building toward platform engineering with Docker, Kubernetes, AWS architecture, algorithms, and distributed systems.",
+      "Implemented Laravel scheduled commands, background processes, data synchronization, and operational automation.",
   },
   {
-    label: "Direction",
-    value: "Backend / Platform",
+    label: "Platform",
+    value: "Operational Debugging",
     detail:
-      "Targeting scalable systems, cloud infrastructure, distributed applications, and R&D-style engineering.",
+      "Investigated production issues through Nginx logs, PHP-FPM behavior, SQL traces, CloudWatch, and environment config.",
   },
 ];
 
@@ -65,140 +88,362 @@ const proofPoints = [
   {
     value: "3+",
     label: "years",
-    detail: "software engineering experience",
+    detail: "backend-heavy software engineering experience",
   },
   {
     value: "~80%",
     label: "backend",
-    detail: "primary engineering focus",
+    detail: "primary engineering focus across recent roles",
+  },
+  {
+    value: "MY + BR",
+    label: "production",
+    detail: "supported Malaysia and Brazil environments",
   },
   {
     value: "6 -> 12",
     label: "Laravel",
-    detail: "modernization work to document",
-  },
-  {
-    value: "7 -> 8",
-    label: "PHP",
-    detail: "runtime migration work to document",
+    detail: "led legacy modernization to Laravel 12",
   },
 ];
 
 const architectureFlow = [
   "Browser",
-  "Cloudflare DNS",
+  "Cloudflare",
   "Vercel",
   "Next.js",
   "Laravel API",
-  "AWS",
-  "RDS / S3",
+  "AWS EC2",
+  "RDS",
+  "S3",
+  "CloudWatch",
 ];
 
-const engineeringWork = [
+const systemFlows = [
   {
-    title: "Laravel Modernization Path",
-    eyebrow: "Legacy systems",
-    problem:
-      "Production PHP applications need to move forward without breaking the workflows people already depend on.",
-    challenge:
-      "Laravel 6 -> 12 and PHP 7 -> 8 changes touch framework behavior, package compatibility, runtime assumptions, and regression risk.",
-    solution:
-      "Frame the work as a migration plan: dependency audit, risk map, testing checklist, rollout notes, and the production issues to watch.",
-    impact:
-      "Shows maintainability, upgrade discipline, and production judgment without exposing company-confidential code.",
-    stack: ["Laravel", "PHP", "MySQL", "Regression checks"],
+    title: "Request lifecycle",
+    steps: ["DNS", "Load balancer", "Nginx", "PHP-FPM", "Laravel", "MySQL"],
   },
   {
-    title: "Forecasting And Analytics Systems",
-    eyebrow: "Data-heavy backend",
+    title: "Authentication",
+    steps: ["Client", "API guard", "Authorization", "Business rule", "Audit trail"],
+  },
+  {
+    title: "Queue flow",
+    steps: ["Scheduler", "Command", "Queue worker", "Job handler", "Retry / log"],
+  },
+  {
+    title: "Storage flow",
+    steps: ["Upload", "Access rule", "S3 path", "Preview", "Fallback"],
+  },
+];
+
+const caseStudies: CaseStudy[] = [
+  {
+    title: "Legacy Laravel Modernization",
+    eyebrow: "Modernization",
+    background:
+      "A production Laravel 6 codebase needed to move to Laravel 12 and PHP 8 while preserving existing business workflows.",
     problem:
-      "Business teams need planning tools that turn historical station sales and operational data into usable scenarios.",
+      "Framework upgrades affect package compatibility, runtime behavior, deprecated APIs, authentication paths, and regression risk.",
+    responsibilities: [
+      "Led the Laravel 6 -> 12 migration work.",
+      "Reviewed package compatibility and runtime changes.",
+      "Supported production rollout planning and regression checks.",
+      "Participated in code reviews and technical discussions around system design.",
+    ],
     challenge:
-      "The hard part is the data path: query design, forecasting inputs, report accuracy, and keeping complex logic understandable.",
-    solution:
-      "Present the work as an engineering case study with data flow, SQL notes, algorithm decisions, and validation steps.",
+      "The work had to improve maintainability and long-term support without breaking live user workflows.",
+    timeline: [
+      {
+        label: "Audit",
+        text: "Mapped framework, PHP, package, and compatibility risks before changing runtime behavior.",
+      },
+      {
+        label: "Refactor",
+        text: "Separated concerns in legacy code so debugging and future changes became easier.",
+      },
+      {
+        label: "Validate",
+        text: "Used regression checks, API behavior review, and release validation to protect production paths.",
+      },
+      {
+        label: "Release",
+        text: "Supported rollout awareness, post-release monitoring, and hotfix readiness.",
+      },
+    ],
+    implementation: [
+      "Updated framework and PHP assumptions from Laravel 6 / PHP 7 to Laravel 12 / PHP 8.",
+      "Refactored legacy areas for reusability, debugging efficiency, and cleaner architecture.",
+      "Checked API behavior and database interactions around upgraded flows.",
+    ],
+    production:
+      "Production safety came from compatibility review, regression testing, deployment coordination, and watching for post-release issues.",
+    lessons:
+      "Modernization is not only package updates. It is risk management, backward compatibility, and keeping operators confident after release.",
     impact:
-      "Positions the project as backend problem-solving, not just dashboard UI.",
-    stack: ["MySQL", "SQL", "Forecasting", "Python algorithms"],
+      "Improved maintainability, security posture, and long-term support for a legacy production system.",
+    stack: ["Laravel 6 -> 12", "PHP 7 -> 8", "MySQL", "Regression checks"],
+  },
+  {
+    title: "Forecasting And Reporting Workflows",
+    eyebrow: "Data systems",
+    background:
+      "Business teams needed reporting and forecasting workflows backed by historical operational data.",
+    problem:
+      "Forecasting accuracy depends on reliable data extraction, business-rule validation, SQL behavior, and transparent reporting outputs.",
+    responsibilities: [
+      "Worked with historical data and reporting flows.",
+      "Used SQL debugging and query optimization to improve data-heavy paths.",
+      "Validated outputs against business expectations and operational rules.",
+      "Used Python for algorithmic thinking and analysis where useful.",
+    ],
+    challenge:
+      "The hard part was keeping business logic, SQL queries, and forecast outputs understandable enough to debug.",
+    dataFlow: [
+      "Historical station sales",
+      "Extraction query",
+      "Business rules",
+      "Forecast logic",
+      "Validation",
+      "Report output",
+    ],
+    decisions: [
+      "Kept SQL behavior explicit so incorrect output could be traced to data, rules, or transformation logic.",
+      "Favored validation checkpoints over hidden calculations.",
+      "Optimized query shape where response time or report generation became a bottleneck.",
+    ],
+    implementation: [
+      "Designed and executed schema migrations while preserving data integrity.",
+      "Extracted and analyzed data to support business decisions.",
+      "Identified bottlenecks and optimized queries for better system efficiency.",
+    ],
+    production:
+      "Production work focused on correctness, query performance, and predictable report behavior for users relying on the data.",
+    lessons:
+      "Data systems fail quietly when validation is weak. The useful engineering work is making each transformation explainable.",
+    impact:
+      "Supported business decision-making through reporting, forecasting inputs, and database-backed workflows.",
+    stack: ["MySQL", "SQL tuning", "Reporting", "Forecasting", "Python"],
   },
   {
     title: "AWS Production Deployment",
     eyebrow: "Cloud infrastructure",
+    background:
+      "Production Laravel applications needed infrastructure that could support deployments, database connectivity, storage, load balancing, and observability.",
     problem:
-      "Backend applications need predictable deployment, storage, database access, logs, and recovery paths.",
+      "Cloud issues often appear outside application code: load balancer behavior, Nginx config, PHP-FPM, environment variables, IAM, storage permissions, and database access.",
+    responsibilities: [
+      "Provisioned and configured AWS infrastructure with EC2, ELB, and RDS.",
+      "Worked with S3, IAM, CloudWatch, and environment configuration.",
+      "Investigated production performance issues using server logs and query optimization.",
+      "Supported multiple production environments and deployment cycles.",
+    ],
     challenge:
-      "AWS work often fails at the edges: Linux configuration, Nginx behavior, environment variables, file storage, and database connectivity.",
-    solution:
-      "Document the deployment architecture from DNS to app runtime, including EC2, RDS, S3, Nginx, and CloudWatch responsibilities.",
+      "The system had to remain operable across deployment, monitoring, file storage, database access, and troubleshooting workflows.",
+    serviceMap: {
+      EC2: "Application runtime for Laravel/PHP workloads.",
+      ELB: "Traffic entry point and load distribution.",
+      RDS: "Managed relational database layer for production data.",
+      S3: "Object storage for files and attachment workflows.",
+      IAM: "Access boundaries for AWS resources.",
+      CloudWatch: "Logs and operational visibility after release.",
+    },
+    implementation: [
+      "Configured AWS components around application deployment needs.",
+      "Used Nginx and PHP-FPM logs to investigate runtime failures.",
+      "Supported production validation and post-release troubleshooting.",
+    ],
+    production:
+      "Operational readiness meant knowing where to look when deployment, database, storage, or runtime behavior failed.",
+    lessons:
+      "Cloud experience becomes useful when it is tied to real troubleshooting paths, not just service names.",
     impact:
-      "Makes infrastructure experience concrete for backend, platform, and cloud-oriented roles.",
-    stack: ["AWS", "EC2", "RDS", "S3", "Nginx"],
+      "Supported production application deployments and gave the backend system clearer operational boundaries.",
+    stack: ["AWS", "EC2", "ELB", "RDS", "S3", "CloudWatch"],
   },
   {
-    title: "Attachment Preview Flow",
-    eyebrow: "Files and rendering",
+    title: "Attachment Preview And File Access",
+    eyebrow: "Storage and security",
+    background:
+      "Users needed a smoother way to inspect attachments without downloading every file manually.",
     problem:
-      "Users should be able to inspect attachments without downloading every file manually.",
+      "File preview work crosses authorization, storage paths, browser behavior, PDF rendering, security, and fallback handling.",
+    responsibilities: [
+      "Handled backend file access and preview behavior.",
+      "Worked with storage paths, access rules, and failure states.",
+      "Considered browser behavior, PDF handling, and user workflow reliability.",
+    ],
     challenge:
-      "File previews involve permissions, storage paths, browser behavior, PDF rendering, and failure handling.",
-    solution:
-      "Describe the preview pipeline, access rules, storage integration, and fallback behavior as a reliability problem.",
+      "The feature had to feel simple while protecting files and handling unsupported preview cases gracefully.",
+    failureModes: [
+      "User has no permission for the attachment.",
+      "File path exists but storage object is unavailable.",
+      "Browser cannot preview the file type.",
+      "PDF render or download behavior differs across browsers.",
+      "Fallback must not bypass authorization.",
+    ],
+    decisions: [
+      "Treat preview as a backend access-control problem before treating it as a UI convenience.",
+      "Keep fallback behavior explicit for unsupported files or failed previews.",
+      "Avoid exposing storage details directly to users.",
+    ],
+    implementation: [
+      "Connected authorization checks to file access paths.",
+      "Handled storage integration and preview failure paths.",
+      "Kept download fallback available where preview behavior was unreliable.",
+    ],
+    production:
+      "The production concern was avoiding broken file workflows while keeping access control intact.",
+    lessons:
+      "File features look small, but the real engineering work is security, storage correctness, and graceful failure.",
     impact:
-      "Turns a product feature into proof of backend ownership across storage, security, and user workflow.",
-    stack: ["Laravel", "S3", "PDF handling", "Access control"],
+      "Improved attachment inspection while preserving backend control over file access.",
+    stack: ["Laravel", "S3", "Access control", "PDF handling", "Fallbacks"],
   },
+];
+
+const productionWins = [
+  "Owned weekly production release cycle with deployment, verification, monitoring, and hotfix support.",
+  "Supported Malaysia and Brazil production environments for deployments of the same system.",
+  "Led migration of a legacy Laravel 6 codebase to Laravel 12.",
+  "Supported PHP 7 -> 8 runtime modernization work.",
+  "Provisioned and configured AWS infrastructure using EC2, ELB, and RDS.",
+  "Investigated production performance issues with Nginx logs, PHP-FPM logs, and SQL optimization.",
+  "Implemented Laravel scheduled commands and background processes for data synchronization.",
+  "Improved average execution time from 70ms to 50ms by reducing queries per page.",
+  "Cached infrequently updated data in Redis to reduce loading time.",
+  "Led Bitbucket to GitLab migration to improve version-control workflow.",
+  "Implemented PASETO security measures for HTTP redirect services.",
+  "Tested shell scripts and SFTP flows for server-to-server file transfers.",
+];
+
+const releaseSteps = [
+  {
+    title: "Prepare",
+    text: "Review backlog scope, deployment notes, schema changes, and environment configuration before release.",
+  },
+  {
+    title: "Deploy",
+    text: "Coordinate weekly production releases and monthly production updates across live environments.",
+  },
+  {
+    title: "Verify",
+    text: "Validate API behavior, core workflows, database changes, and integration points after deployment.",
+  },
+  {
+    title: "Monitor",
+    text: "Watch logs, user reports, CloudWatch signals, and production behavior after release.",
+  },
+  {
+    title: "Hotfix",
+    text: "Investigate failures quickly and support targeted fixes when production behavior changes.",
+  },
+];
+
+const debuggingSignals = [
+  "Nginx access and error logs",
+  "PHP-FPM runtime behavior",
+  "CloudWatch logs and metrics",
+  "SQL query plans and slow paths",
+  "Environment variables and deployment config",
+  "Linux permissions and storage paths",
+  "API payloads and third-party responses",
+  "Performance bottlenecks and load-time regressions",
 ];
 
 const skillGroups = [
   {
     title: "Backend",
-    skills: ["PHP", "Laravel", "REST APIs", "Queue workers", "Auth flows", "Business logic"],
+    skills: [
+      "PHP",
+      "Laravel",
+      "Symfony",
+      "REST APIs",
+      "Auth / authorization",
+      "Business logic",
+    ],
   },
   {
     title: "Database",
-    skills: ["MySQL", "SQL", "Schema design", "Query tuning", "Reports", "Forecasting data"],
+    skills: [
+      "MySQL",
+      "PostgreSQL",
+      "Schema migrations",
+      "Query optimization",
+      "Reporting",
+      "Data integrity",
+    ],
   },
   {
     title: "Cloud",
-    skills: ["AWS", "EC2", "RDS", "S3", "CloudWatch", "Deployments"],
+    skills: ["AWS", "EC2", "ELB", "RDS", "IAM", "S3", "CloudWatch", "Lambda"],
   },
   {
     title: "Infrastructure",
-    skills: ["Ubuntu", "Nginx", "Linux logs", "PHP-FPM", "Docker basics", "Production debugging"],
+    skills: [
+      "Ubuntu",
+      "Nginx",
+      "PHP-FPM",
+      "DNS",
+      "Environment config",
+      "Server monitoring",
+    ],
   },
   {
-    title: "Frontend",
-    skills: ["Next.js", "React", "JavaScript", "TypeScript", "API integration", "Responsive UI"],
+    title: "Automation",
+    skills: [
+      "Laravel Scheduler",
+      "Queue workers",
+      "Background jobs",
+      "Data sync",
+      "Shell scripts",
+      "SFTP testing",
+    ],
   },
   {
-    title: "Learning",
-    skills: ["Docker", "Kubernetes", "Terraform", "System design", "AWS architecture", "Algorithms"],
+    title: "Earlier Backend Signals",
+    skills: [
+      "Redis caching",
+      "PASETO",
+      "Git migration",
+      "Reverse engineering",
+      "C++ builds",
+      "API specs",
+    ],
   },
 ];
 
 const timeline = [
   {
     period: "2022",
-    title: "Software engineering foundation",
-    text: "Built experience with Laravel, PHP, MySQL, API work, and production support.",
+    title: "Backend foundations",
+    text: "Maintained Laravel backends for delivery, invoicing, and HR systems; implemented PASETO, Redis caching, API specs, and a 70ms -> 50ms query reduction.",
   },
   {
-    period: "Backend focus",
-    title: "Production systems",
-    text: "Moved deeper into reports, data flows, file handling, Linux/Nginx environments, and AWS-backed applications.",
+    period: "2023 - 2025",
+    title: "Production support and systems work",
+    text: "Shipped Laravel systems, monthly production updates, GitLab migration, server monitoring, API integrations, shell-script testing, SFTP validation, and reverse-engineering/debugging work.",
   },
   {
-    period: "Now",
-    title: "Platform direction",
-    text: "Strengthening Docker, Kubernetes, AWS architecture, system design, and algorithms for backend/platform roles.",
+    period: "2025",
+    title: "Backend modernization and cloud",
+    text: "Maintained Laravel applications, developed REST APIs, handled schema migrations, led Laravel 6 -> 12 migration, configured AWS EC2/ELB/RDS, and debugged Nginx/PHP-FPM production issues.",
+  },
+  {
+    period: "2026",
+    title: "Senior full-stack role with backend ownership",
+    text: "Owned weekly production releases, supported Malaysia and Brazil environments, optimized APIs and database queries, implemented scheduler/background processes, and refactored legacy code.",
   },
 ];
 
-const notes = [
-  "Laravel upgrade lessons: framework risk, package compatibility, and rollout checks.",
-  "AWS deployment notes: EC2, RDS, S3, Nginx, logs, and production troubleshooting.",
-  "MySQL performance notes: query shape, report data, indexes, and validation.",
-  "System design notes: queues, file storage, observability, and failure modes.",
+const principles = [
+  "Build for maintainability before cleverness.",
+  "Debug using evidence: logs, queries, payloads, and reproducible behavior.",
+  "Treat production release work as engineering work, not an afterthought.",
+  "Understand the full request lifecycle before changing one layer.",
+  "Make failure modes visible so support is faster.",
+  "Prefer simple architecture that another engineer can operate.",
 ];
 
 function HeroSystemVisual() {
@@ -209,10 +454,10 @@ function HeroSystemVisual() {
       <div className="absolute left-6 right-6 top-6 flex items-center justify-between border-b border-white/10 pb-4">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
-            System Snapshot
+            Production Snapshot
           </p>
           <p className="mt-2 text-sm text-white/55">
-            Request path and runtime responsibilities
+            Release, runtime, database, and support responsibilities
           </p>
         </div>
         <div className="flex gap-1.5" aria-hidden="true">
@@ -225,21 +470,23 @@ function HeroSystemVisual() {
       <div className="absolute inset-x-6 top-32 grid gap-4 sm:grid-cols-[1.05fr_0.95fr]">
         <div className="rounded-md border border-white/10 bg-black/30 p-4 backdrop-blur">
           <p className="text-xs uppercase tracking-[0.22em] text-white/45">
-            Architecture
+            Release Path
           </p>
           <div className="mt-5 grid gap-2">
-            {["DNS", "App", "API", "Database", "Storage"].map((step, index) => (
-              <div
-                key={step}
-                className="flex items-center justify-between rounded-sm border border-white/10 bg-white/[0.04] px-3 py-2 text-xs"
-              >
-                <span className="font-mono uppercase tracking-[0.18em] text-white/45">
-                  0{index + 1}
-                </span>
-                <span className="font-semibold text-[#f4f4f5]">{step}</span>
-                <span className="text-[#ef4444]">ready</span>
-              </div>
-            ))}
+            {["Plan", "Deploy", "Verify", "Monitor", "Hotfix"].map(
+              (step, index) => (
+                <div
+                  key={step}
+                  className="flex items-center justify-between rounded-sm border border-white/10 bg-white/[0.04] px-3 py-2 text-xs"
+                >
+                  <span className="font-mono uppercase tracking-[0.18em] text-white/45">
+                    0{index + 1}
+                  </span>
+                  <span className="font-semibold text-[#f4f4f5]">{step}</span>
+                  <span className="text-[#ef4444]">owned</span>
+                </div>
+              ),
+            )}
           </div>
         </div>
 
@@ -256,19 +503,19 @@ function HeroSystemVisual() {
                 <span className="text-[#f87171]">db</span> mysql/rds
               </p>
               <p>
-                <span className="text-[#ef4444]">ops</span> ubuntu/nginx
+                <span className="text-[#ef4444]">ops</span> nginx/php-fpm
               </p>
             </div>
           </div>
           <div className="rounded-md border border-white/10 bg-white/[0.04] p-4">
             <p className="text-xs uppercase tracking-[0.22em] text-white/45">
-              Focus
+              Signal
             </p>
             <p className="mt-3 text-3xl font-semibold text-[#fafafa]">
-              Backend
+              Production
             </p>
             <p className="mt-2 text-sm leading-6 text-[#a1a1aa]">
-              APIs, data, deployment, reliability, and migration work.
+              Releases, logs, APIs, SQL, infrastructure, and user support.
             </p>
           </div>
         </div>
@@ -279,26 +526,19 @@ function HeroSystemVisual() {
 
 function ArchitectureDiagram() {
   return (
-    <div className="rounded-md border border-white/10 bg-[#101010] p-5">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center">
+    <div className="min-w-0 rounded-md border border-white/10 bg-[#101010] p-5">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {architectureFlow.map((item, index) => (
-          <div key={item} className="contents md:flex md:flex-1 md:items-center">
-            <div className="rounded-md border border-white/10 bg-black/25 p-4 text-center md:min-h-28 md:flex-1">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#ef4444]">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <p className="mt-2 text-sm font-semibold text-[#f4f4f5]">
-                {item}
-              </p>
-            </div>
-            {index < architectureFlow.length - 1 ? (
-              <div
-                className="hidden px-2 text-center font-mono text-sm text-white/30 md:block"
-                aria-hidden="true"
-              >
-                -&gt;
-              </div>
-            ) : null}
+          <div
+            key={item}
+            className="rounded-md border border-white/10 bg-black/25 p-4"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#ef4444]">
+              {String(index + 1).padStart(2, "0")}
+            </p>
+            <p className="mt-2 text-sm font-semibold text-[#f4f4f5]">
+              {item}
+            </p>
           </div>
         ))}
       </div>
@@ -339,14 +579,14 @@ export default function Home() {
             <a className="transition hover:text-[#f4f4f5]" href="#architecture">
               Architecture
             </a>
+            <a className="transition hover:text-[#f4f4f5]" href="#production">
+              Production
+            </a>
             <a className="transition hover:text-[#f4f4f5]" href="#stack">
               Skills
             </a>
-            <a className="transition hover:text-[#f4f4f5]" href="#timeline">
-              Timeline
-            </a>
-            <a className="transition hover:text-[#f4f4f5]" href="#notes">
-              Notes
+            <a className="transition hover:text-[#f4f4f5]" href="#about">
+              About
             </a>
             <a className="transition hover:text-[#f4f4f5]" href="#contact">
               Contact
@@ -374,19 +614,19 @@ export default function Home() {
         >
           <div className="max-w-3xl">
             <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
-              Backend software engineer / Laravel / AWS
+              Backend software engineer / production systems / AWS
             </p>
             <h1 className="[font-family:var(--font-display)] text-7xl leading-none text-[#fafafa] sm:text-8xl lg:text-9xl">
               Amirul
             </h1>
             <p className="mt-8 max-w-2xl text-2xl leading-tight text-[#f4f4f5] sm:text-3xl">
-              I build Laravel/PHP systems that are easier to operate, migrate,
-              and scale.
+              I build and maintain backend systems that survive real production
+              use.
             </p>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#a1a1aa]">
-              Backend-focused software engineer with 3+ years of experience
-              across Laravel, MySQL, AWS, Ubuntu, Nginx, JavaScript, and
-              production application support.
+              3+ years across Laravel, PHP, MySQL, AWS, Linux, Nginx, REST
+              APIs, release engineering, production support, and database-heavy
+              systems.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -440,62 +680,208 @@ export default function Home() {
                 Featured Engineering Work
               </p>
               <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-                Case studies that prove backend depth.
+                Production backend case studies.
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-[#a1a1aa]">
-              The goal is to show the problem, technical challenge, solution,
-              and impact behind each project. Code can stay private when it is
-              company-confidential; the engineering thinking should still be
-              visible.
+              These are backend problems: modernization, data correctness,
+              deployment, storage, debugging, release safety, and keeping
+              systems maintainable after they are live.
             </p>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-2">
-            {engineeringWork.map((item) => (
+          <div className="grid gap-5">
+            {caseStudies.map((item, index) => (
               <article
                 key={item.title}
                 className="rounded-md border border-white/10 bg-[#101010] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#f87171]/45"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
-                  {item.eyebrow}
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#f4f4f5]">
-                  {item.title}
-                </h3>
-                <div className="mt-6 grid gap-4">
-                  {[
-                    ["Problem", item.problem],
-                    ["Challenge", item.challenge],
-                    ["Solution", item.solution],
-                    ["Impact", item.impact],
-                  ].map(([label, text]) => (
-                    <div
-                      key={label}
-                      className="border-l border-[#ef4444]/40 pl-4"
-                    >
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
-                        {label}
-                      </p>
-                      <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
-                        {text}
-                      </p>
+                <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
+                      {item.eyebrow}
+                    </p>
+                    <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#f4f4f5]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-5 text-sm leading-7 text-[#a1a1aa]">
+                      {item.background}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {item.stack.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-sm border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#e4e4e7]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="grid gap-5">
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div className="border-l border-[#ef4444]/40 pl-4">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Problem
+                        </p>
+                        <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
+                          {item.problem}
+                        </p>
+                      </div>
+                      <div className="border-l border-[#ef4444]/40 pl-4">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Technical Challenge
+                        </p>
+                        <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
+                          {item.challenge}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="rounded-md border border-white/10 bg-black/25 p-5">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                        My Responsibilities
+                      </p>
+                      <div className="mt-4 grid gap-2">
+                        {item.responsibilities.map((responsibility) => (
+                          <p
+                            key={responsibility}
+                            className="text-sm leading-6 text-[#d4d4d8]"
+                          >
+                            {responsibility}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+
+                    {item.timeline ? (
+                      <div className="grid gap-3 md:grid-cols-4">
+                        {item.timeline.map((step) => (
+                          <div
+                            key={step.label}
+                            className="rounded-md border border-white/10 bg-white/[0.04] p-4"
+                          >
+                            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#ef4444]">
+                              {step.label}
+                            </p>
+                            <p className="mt-3 text-xs leading-6 text-[#a1a1aa]">
+                              {step.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    {item.dataFlow ? (
+                      <div className="rounded-md border border-white/10 bg-black/25 p-5">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Data Flow
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {item.dataFlow.map((step, stepIndex) => (
+                            <span
+                              key={step}
+                              className="rounded-sm border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-[#d4d4d8]"
+                            >
+                              {stepIndex + 1}. {step}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {item.serviceMap ? (
+                      <div className="grid gap-3 md:grid-cols-2">
+                        {Object.entries(item.serviceMap).map(
+                          ([service, responsibility]) => (
+                            <div
+                              key={service}
+                              className="rounded-md border border-white/10 bg-white/[0.04] p-4"
+                            >
+                              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#ef4444]">
+                                {service}
+                              </p>
+                              <p className="mt-2 text-xs leading-6 text-[#a1a1aa]">
+                                {responsibility}
+                              </p>
+                            </div>
+                          ),
+                        )}
+                      </div>
+                    ) : null}
+
+                    {item.failureModes ? (
+                      <div className="rounded-md border border-white/10 bg-black/25 p-5">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Failure Modes Considered
+                        </p>
+                        <div className="mt-4 grid gap-2 md:grid-cols-2">
+                          {item.failureModes.map((mode) => (
+                            <p
+                              key={mode}
+                              className="text-xs leading-6 text-[#a1a1aa]"
+                            >
+                              {mode}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Engineering Decisions
+                        </p>
+                        <div className="mt-3 grid gap-2">
+                          {(item.decisions ?? item.implementation).map(
+                            (decision) => (
+                              <p
+                                key={decision}
+                                className="text-sm leading-6 text-[#a1a1aa]"
+                              >
+                                {decision}
+                              </p>
+                            ),
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Production Considerations
+                        </p>
+                        <p className="mt-3 text-sm leading-7 text-[#a1a1aa]">
+                          {item.production}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-4 border-t border-white/10 pt-5 md:grid-cols-2">
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Lessons Learned
+                        </p>
+                        <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
+                          {item.lessons}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                          Business Impact
+                        </p>
+                        <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
+                          {item.impact}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="text-xs uppercase tracking-[0.18em] text-white/40">
+                      Case study {String(index + 1).padStart(2, "0")} / Code
+                      unavailable where company confidentiality applies.
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {item.stack.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-sm border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#e4e4e7]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-6 border-t border-white/10 pt-4 text-xs uppercase tracking-[0.18em] text-white/40">
-                  Code unavailable where company confidentiality applies.
-                </p>
               </article>
             ))}
           </div>
@@ -512,15 +898,120 @@ export default function Home() {
               Architecture
             </p>
             <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              Show the system, not just the screen.
+              I think in request paths and failure modes.
             </h2>
             <p className="mt-6 text-base leading-8 text-[#a1a1aa]">
-              Recruiters should see the path from request to runtime: DNS,
-              frontend host, Laravel API, AWS services, database, storage, and
-              operational concerns.
+              Backend ownership means understanding what happens before and
+              after the controller: DNS, load balancing, runtime, auth, queues,
+              storage, database behavior, logs, and post-release monitoring.
             </p>
           </div>
           <ArchitectureDiagram />
+        </div>
+
+        <div className="mx-auto mt-8 grid max-w-7xl gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {systemFlows.map((flow) => (
+            <div
+              key={flow.title}
+              className="rounded-md border border-white/10 bg-[#101010] p-5"
+            >
+              <h3 className="text-lg font-semibold text-[#fafafa]">
+                {flow.title}
+              </h3>
+              <div className="mt-5 grid gap-2">
+                {flow.steps.map((step, index) => (
+                  <div
+                    key={step}
+                    className="flex items-center justify-between rounded-sm border border-white/10 bg-white/[0.04] px-3 py-2 text-xs"
+                  >
+                    <span className="font-mono text-white/45">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[#d4d4d8]">{step}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="production"
+        className="border-b border-white/10 bg-[#0f0f10] px-5 py-20 sm:px-8 lg:py-28"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 grid gap-6 md:grid-cols-[0.75fr_1fr] md:items-end">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
+                Production Ownership
+              </p>
+              <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
+                Release engineering and debugging are part of the work.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-base leading-8 text-[#a1a1aa]">
+              My strongest production signals are not UI polish. They are
+              release cycles, logs, hotfixes, SQL behavior, environment config,
+              server health, deployment validation, and support after the code
+              is live.
+            </p>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+            <section className="rounded-md border border-white/10 bg-[#101010] p-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
+                Release Engineering
+              </p>
+              <div className="mt-6 grid gap-4">
+                {releaseSteps.map((step) => (
+                  <div
+                    key={step.title}
+                    className="grid gap-3 border-l border-[#ef4444]/40 pl-4 sm:grid-cols-[120px_1fr]"
+                  >
+                    <h3 className="text-sm font-semibold text-[#f4f4f5]">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-7 text-[#a1a1aa]">
+                      {step.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-md border border-white/10 bg-[#101010] p-6">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
+                Debugging Production Systems
+              </p>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                {debuggingSignals.map((signal) => (
+                  <div
+                    key={signal}
+                    className="rounded-md border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-[#d4d4d8]"
+                  >
+                    {signal}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <section className="mt-5 rounded-md border border-white/10 bg-[#101010] p-6">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
+              Production Wins
+            </p>
+            <div className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+              {productionWins.map((win) => (
+                <div
+                  key={win}
+                  className="rounded-md border border-white/10 bg-white/[0.04] p-4 text-sm leading-7 text-[#d4d4d8]"
+                >
+                  {win}
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
 
@@ -539,8 +1030,9 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[#a1a1aa]">
-              Grouped by how the work actually happens, not as a wall of logos
-              or skill percentages.
+              Grouped by production responsibility: backend code, data,
+              infrastructure, automation, debugging, and earlier platform
+              signals.
             </p>
           </div>
           <SignalCarousel items={signalCards} />
@@ -579,7 +1071,7 @@ export default function Home() {
               Engineering Timeline
             </p>
             <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              The direction is backend and platform engineering.
+              Backend ownership built through production work.
             </h2>
           </div>
           <div className="grid gap-4">
@@ -606,29 +1098,30 @@ export default function Home() {
       </section>
 
       <section
-        id="notes"
+        id="principles"
         className="border-b border-white/10 bg-[#050505] px-5 py-20 sm:px-8 lg:py-28"
       >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
-              Engineering Notes
+              Engineering Principles
             </p>
             <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              Write about the hard parts.
+              The habits behind the backend work.
             </h2>
             <p className="mt-6 text-base leading-8 text-[#a1a1aa]">
-              These topics are strong blog or case-study material because they
-              show decision-making, debugging, and trade-offs.
+              These are the principles I come back to when working with legacy
+              systems, production incidents, release cycles, APIs, and data
+              workflows.
             </p>
           </div>
           <div className="grid gap-3">
-            {notes.map((note) => (
+            {principles.map((principle) => (
               <div
-                key={note}
+                key={principle}
                 className="rounded-md border border-white/10 bg-[#101010] p-5 text-sm leading-7 text-[#d4d4d8]"
               >
-                {note}
+                {principle}
               </div>
             ))}
           </div>
@@ -650,8 +1143,8 @@ export default function Home() {
                 <div className="rounded-md border border-white/10 bg-black/25 p-5">
                   <p className="text-5xl font-semibold text-[#fafafa]">A</p>
                   <p className="mt-6 max-w-sm text-sm leading-7 text-[#a1a1aa]">
-                    Backend-focused engineer building from application code
-                    down to database, deployment, and operations.
+                    Backend engineer who enjoys tracing a request from DNS to
+                    Laravel, SQL, logs, infrastructure, and user impact.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -660,7 +1153,7 @@ export default function Home() {
                       API
                     </p>
                     <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
-                      Laravel services
+                      REST and integration
                     </p>
                   </div>
                   <div className="rounded-md border border-white/10 bg-white/[0.04] p-4">
@@ -668,7 +1161,7 @@ export default function Home() {
                       Ops
                     </p>
                     <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
-                      AWS and Linux
+                      Release and support
                     </p>
                   </div>
                 </div>
@@ -682,17 +1175,25 @@ export default function Home() {
               About
             </p>
             <h2 className="mt-4 max-w-2xl [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              I want the work to survive real production use.
+              I like backend work because the truth is in the system.
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#a1a1aa]">
-              My strongest work is backend-heavy: Laravel and PHP applications,
-              MySQL data flows, AWS services, Linux/Nginx environments, and the
-              debugging that happens when software meets real users.
+              I enjoy the part of engineering where you follow evidence:
+              reading logs, checking SQL, tracing API payloads, reviewing
+              environment configuration, and finding the exact point where a
+              production workflow breaks.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-8 text-[#a1a1aa]">
-              The next step I am building toward is backend/platform
-              engineering: scalable systems, cloud infrastructure, distributed
-              applications, and R&D-style problem solving.
+              My best work sits between backend code and operations: Laravel
+              systems, database-heavy features, AWS deployments, release
+              coordination, legacy refactoring, and making software easier for
+              the next engineer to maintain.
+            </p>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[#a1a1aa]">
+              I also work closely with business stakeholders, product owners,
+              QA, external systems, and other engineers through estimation,
+              technical discussions, code reviews, and modest mentoring of
+              interns.
             </p>
           </div>
         </div>
@@ -705,7 +1206,8 @@ export default function Home() {
               Contact
             </p>
             <h2 className="mt-3 max-w-2xl [font-family:var(--font-display)] text-3xl leading-tight text-[#fafafa] sm:text-4xl">
-              Interested in scalable backend systems? Let&apos;s talk.
+              Need someone who can build, release, and debug backend systems?
+              Let&apos;s talk.
             </h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
