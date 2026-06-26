@@ -1,120 +1,209 @@
 import { SignalCarousel } from "./components/SignalCarousel";
 
-const projects = [
-  {
-    name: "Distributed Systems Platform",
-    label: "Backend Architecture",
-    summary:
-      "Backend services for event intake, queue processing, and basic monitoring so the team could see what was happening under load.",
-    tags: ["TypeScript", "Node.js", "Postgres"],
-    metric: "Queues and monitoring",
-    variant: "network",
-  },
-  {
-    name: "Product Operations Dashboard",
-    label: "Frontend Engineering",
-    summary:
-      "A dashboard for product metrics, support cases, and handoffs, built for daily use by people who need quick answers.",
-    tags: ["Next.js", "React", "Tailwind"],
-    metric: "Daily team workflows",
-    variant: "dashboard",
-  },
-  {
-    name: "Developer Workflow Tooling",
-    label: "Internal Tools",
-    summary:
-      "Small tools and automation for repeated engineering tasks, with faster checks during reviews and releases.",
-    tags: ["APIs", "CI/CD", "DX"],
-    metric: "Review support",
-    variant: "terminal",
-  },
-];
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
-const capabilities = [
-  "Next.js App Router",
-  "React UI systems",
-  "TypeScript contracts",
-  "API integration",
-  "PostgreSQL models",
-  "Auth flows",
-  "Performance budgets",
-  "CI/CD hygiene",
-];
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Amirul",
+  jobTitle: "Backend Software Engineer",
+  email: "mailto:amirulyunus29@gmail.com",
+  url: siteUrl,
+  knowsAbout: [
+    "Laravel",
+    "PHP",
+    "MySQL",
+    "AWS",
+    "Ubuntu",
+    "Nginx",
+    "REST APIs",
+    "Backend systems",
+    "System design",
+  ],
+};
 
 const signalCards = [
   {
-    label: "Frontend",
-    value: "React / Next.js",
-    detail: "Building responsive screens with reusable components and the App Router.",
-  },
-  {
     label: "Backend",
-    value: "Laravel",
-    detail: "My main backend stack for APIs, business logic, and integrations.",
+    value: "Laravel / PHP",
+    detail:
+      "Backend-focused software engineer working across APIs, business logic, MySQL data models, and production maintenance.",
   },
   {
     label: "Cloud",
-    value: "AWS",
-    detail: "Hands-on with EC2, RDS, S3, ALB, and CloudWatch in production work.",
+    value: "AWS + Linux",
+    detail:
+      "Hands-on with EC2, RDS, S3, Ubuntu, Nginx, deployment environments, logs, and production troubleshooting.",
   },
   {
     label: "Database",
-    value: "MySQL",
-    detail: "Designing schemas, improving queries, and supporting reporting features.",
+    value: "MySQL / SQL",
+    detail:
+      "Comfortable with relational schemas, query behavior, reporting flows, forecasting inputs, and debugging data issues.",
+  },
+  {
+    label: "Frontend",
+    value: "Next.js / React",
+    detail:
+      "Enough frontend to ship complete products while keeping the portfolio clearly backend-led.",
   },
   {
     label: "Learning",
-    value: "In Progress",
-    detail: "Currently learning more Docker, Kubernetes, system design, and AWS architecture.",
+    value: "Docker + System Design",
+    detail:
+      "Building toward platform engineering with Docker, Kubernetes, AWS architecture, algorithms, and distributed systems.",
   },
   {
-    label: "Beyond Code",
-    value: "Runner & Gamer",
-    detail: "Morning runs, story-driven games, and time behind a camera.",
+    label: "Direction",
+    value: "Backend / Platform",
+    detail:
+      "Targeting scalable systems, cloud infrastructure, distributed applications, and R&D-style engineering.",
   },
 ];
 
-const approach = [
+const proofPoints = [
   {
-    title: "Start with the structure",
-    text: "I like to understand the flow, the data, and the failure cases before polishing the screen.",
+    value: "3+",
+    label: "years",
+    detail: "software engineering experience",
   },
   {
-    title: "Keep screens readable",
-    text: "I prefer interfaces that are easy to scan, especially for dashboards, forms, and admin tools.",
+    value: "~80%",
+    label: "backend",
+    detail: "primary engineering focus",
   },
   {
-    title: "Do the small things properly",
-    text: "Loading states, empty states, access checks, and edge cases matter once real people start using the work.",
-  },
-];
-
-const photoFrames = [
-  {
-    title: "Street light",
-    location: "Kuala Lumpur",
-    style: "bg-[linear-gradient(135deg,#080808_0%,#3f0d12_48%,#111111_100%)]",
+    value: "6 -> 12",
+    label: "Laravel",
+    detail: "modernization work to document",
   },
   {
-    title: "Quiet water",
-    location: "After hours",
-    style: "bg-[linear-gradient(135deg,#09090b_0%,#27272a_50%,#5f1218_100%)]",
-  },
-  {
-    title: "Hard edges",
-    location: "Concrete study",
-    style: "bg-[linear-gradient(135deg,#050505_0%,#52525b_50%,#151515_100%)]",
-  },
-  {
-    title: "Open sky",
-    location: "Travel notes",
-    style: "bg-[linear-gradient(135deg,#090909_0%,#1f1f23_55%,#7f1d1d_100%)]",
+    value: "7 -> 8",
+    label: "PHP",
+    detail: "runtime migration work to document",
   },
 ];
 
-function HeroVisual() {
+const architectureFlow = [
+  "Browser",
+  "Cloudflare DNS",
+  "Vercel",
+  "Next.js",
+  "Laravel API",
+  "AWS",
+  "RDS / S3",
+];
+
+const engineeringWork = [
+  {
+    title: "Laravel Modernization Path",
+    eyebrow: "Legacy systems",
+    problem:
+      "Production PHP applications need to move forward without breaking the workflows people already depend on.",
+    challenge:
+      "Laravel 6 -> 12 and PHP 7 -> 8 changes touch framework behavior, package compatibility, runtime assumptions, and regression risk.",
+    solution:
+      "Frame the work as a migration plan: dependency audit, risk map, testing checklist, rollout notes, and the production issues to watch.",
+    impact:
+      "Shows maintainability, upgrade discipline, and production judgment without exposing company-confidential code.",
+    stack: ["Laravel", "PHP", "MySQL", "Regression checks"],
+  },
+  {
+    title: "Forecasting And Analytics Systems",
+    eyebrow: "Data-heavy backend",
+    problem:
+      "Business teams need planning tools that turn historical station sales and operational data into usable scenarios.",
+    challenge:
+      "The hard part is the data path: query design, forecasting inputs, report accuracy, and keeping complex logic understandable.",
+    solution:
+      "Present the work as an engineering case study with data flow, SQL notes, algorithm decisions, and validation steps.",
+    impact:
+      "Positions the project as backend problem-solving, not just dashboard UI.",
+    stack: ["MySQL", "SQL", "Forecasting", "Python algorithms"],
+  },
+  {
+    title: "AWS Production Deployment",
+    eyebrow: "Cloud infrastructure",
+    problem:
+      "Backend applications need predictable deployment, storage, database access, logs, and recovery paths.",
+    challenge:
+      "AWS work often fails at the edges: Linux configuration, Nginx behavior, environment variables, file storage, and database connectivity.",
+    solution:
+      "Document the deployment architecture from DNS to app runtime, including EC2, RDS, S3, Nginx, and CloudWatch responsibilities.",
+    impact:
+      "Makes infrastructure experience concrete for backend, platform, and cloud-oriented roles.",
+    stack: ["AWS", "EC2", "RDS", "S3", "Nginx"],
+  },
+  {
+    title: "Attachment Preview Flow",
+    eyebrow: "Files and rendering",
+    problem:
+      "Users should be able to inspect attachments without downloading every file manually.",
+    challenge:
+      "File previews involve permissions, storage paths, browser behavior, PDF rendering, and failure handling.",
+    solution:
+      "Describe the preview pipeline, access rules, storage integration, and fallback behavior as a reliability problem.",
+    impact:
+      "Turns a product feature into proof of backend ownership across storage, security, and user workflow.",
+    stack: ["Laravel", "S3", "PDF handling", "Access control"],
+  },
+];
+
+const skillGroups = [
+  {
+    title: "Backend",
+    skills: ["PHP", "Laravel", "REST APIs", "Queue workers", "Auth flows", "Business logic"],
+  },
+  {
+    title: "Database",
+    skills: ["MySQL", "SQL", "Schema design", "Query tuning", "Reports", "Forecasting data"],
+  },
+  {
+    title: "Cloud",
+    skills: ["AWS", "EC2", "RDS", "S3", "CloudWatch", "Deployments"],
+  },
+  {
+    title: "Infrastructure",
+    skills: ["Ubuntu", "Nginx", "Linux logs", "PHP-FPM", "Docker basics", "Production debugging"],
+  },
+  {
+    title: "Frontend",
+    skills: ["Next.js", "React", "JavaScript", "TypeScript", "API integration", "Responsive UI"],
+  },
+  {
+    title: "Learning",
+    skills: ["Docker", "Kubernetes", "Terraform", "System design", "AWS architecture", "Algorithms"],
+  },
+];
+
+const timeline = [
+  {
+    period: "2022",
+    title: "Software engineering foundation",
+    text: "Built experience with Laravel, PHP, MySQL, API work, and production support.",
+  },
+  {
+    period: "Backend focus",
+    title: "Production systems",
+    text: "Moved deeper into reports, data flows, file handling, Linux/Nginx environments, and AWS-backed applications.",
+  },
+  {
+    period: "Now",
+    title: "Platform direction",
+    text: "Strengthening Docker, Kubernetes, AWS architecture, system design, and algorithms for backend/platform roles.",
+  },
+];
+
+const notes = [
+  "Laravel upgrade lessons: framework risk, package compatibility, and rollout checks.",
+  "AWS deployment notes: EC2, RDS, S3, Nginx, logs, and production troubleshooting.",
+  "MySQL performance notes: query shape, report data, indexes, and validation.",
+  "System design notes: queues, file storage, observability, and failure modes.",
+];
+
+function HeroSystemVisual() {
   return (
-    <div className="relative min-h-[420px] overflow-hidden rounded-md border border-white/10 bg-[#101010] shadow-2xl shadow-black/50">
+    <div className="relative min-h-[460px] overflow-hidden rounded-md border border-white/10 bg-[#101010] shadow-2xl shadow-black/50">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.055)_1px,transparent_1px)] bg-[size:44px_44px]" />
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#ef4444]/20 to-transparent" />
       <div className="absolute left-6 right-6 top-6 flex items-center justify-between border-b border-white/10 pb-4">
@@ -122,66 +211,65 @@ function HeroVisual() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
             System Snapshot
           </p>
-          <p className="mt-2 text-sm text-white/55">Portfolio runtime</p>
+          <p className="mt-2 text-sm text-white/55">
+            Request path and runtime responsibilities
+          </p>
         </div>
-        <div className="flex gap-1.5">
+        <div className="flex gap-1.5" aria-hidden="true">
           <span className="size-2 rounded-full bg-[#f87171]" />
           <span className="size-2 rounded-full bg-[#ef4444]" />
           <span className="size-2 rounded-full bg-white/30" />
         </div>
       </div>
 
-      <div className="absolute inset-x-6 top-32 grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
-        <div className="rounded-md border border-white/10 bg-black/25 p-4 backdrop-blur">
-          <div className="mb-5 flex items-center justify-between">
-            <span className="text-xs uppercase tracking-[0.22em] text-white/45">
-              Services
-            </span>
-            <span className="rounded-sm bg-[#f87171]/15 px-2 py-1 text-xs font-semibold text-[#f87171]">
-              Live
-            </span>
-          </div>
-          <div className="relative h-48">
-            <span className="absolute left-2 top-3 size-14 rounded-md border border-[#f87171]/40 bg-[#f87171]/10" />
-            <span className="absolute right-4 top-8 size-16 rounded-md border border-[#ef4444]/40 bg-[#ef4444]/10" />
-            <span className="absolute bottom-4 left-1/3 size-20 rounded-md border border-white/20 bg-white/5" />
-            <span className="absolute left-[23%] top-[28%] h-px w-[42%] rotate-12 bg-white/20" />
-            <span className="absolute left-[45%] top-[52%] h-px w-[32%] -rotate-[35deg] bg-white/20" />
-            <span className="absolute bottom-8 left-4 h-px w-[34%] -rotate-12 bg-white/20" />
-            <div className="absolute inset-x-0 bottom-0 grid grid-cols-4 gap-2">
-              <span className="h-9 rounded-sm bg-white/8" />
-              <span className="h-14 rounded-sm bg-[#f87171]/45" />
-              <span className="h-11 rounded-sm bg-white/8" />
-              <span className="h-20 rounded-sm bg-[#ef4444]/60" />
-            </div>
+      <div className="absolute inset-x-6 top-32 grid gap-4 sm:grid-cols-[1.05fr_0.95fr]">
+        <div className="rounded-md border border-white/10 bg-black/30 p-4 backdrop-blur">
+          <p className="text-xs uppercase tracking-[0.22em] text-white/45">
+            Architecture
+          </p>
+          <div className="mt-5 grid gap-2">
+            {["DNS", "App", "API", "Database", "Storage"].map((step, index) => (
+              <div
+                key={step}
+                className="flex items-center justify-between rounded-sm border border-white/10 bg-white/[0.04] px-3 py-2 text-xs"
+              >
+                <span className="font-mono uppercase tracking-[0.18em] text-white/45">
+                  0{index + 1}
+                </span>
+                <span className="font-semibold text-[#f4f4f5]">{step}</span>
+                <span className="text-[#ef4444]">ready</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="grid gap-4">
           <div className="rounded-md border border-white/10 bg-[#090909]/80 p-4">
             <p className="text-xs uppercase tracking-[0.22em] text-white/45">
-              Pipeline
+              Runtime
             </p>
             <div className="mt-4 space-y-2 font-mono text-xs text-white/60">
               <p>
-                <span className="text-[#f87171]">pass</span> typecheck
+                <span className="text-[#f87171]">api</span> laravel/php
               </p>
               <p>
-                <span className="text-[#f87171]">pass</span> lint
+                <span className="text-[#f87171]">db</span> mysql/rds
               </p>
               <p>
-                <span className="text-[#ef4444]">watch</span> p95.latency
+                <span className="text-[#ef4444]">ops</span> ubuntu/nginx
               </p>
             </div>
           </div>
           <div className="rounded-md border border-white/10 bg-white/[0.04] p-4">
-            <div className="mb-3 flex items-center justify-between text-sm">
-              <span className="text-white/55">Signal quality</span>
-              <span className="font-semibold text-white">94%</span>
-            </div>
-            <div className="h-2 rounded-sm bg-white/10">
-              <div className="h-2 w-[94%] rounded-sm bg-[#f87171]" />
-            </div>
+            <p className="text-xs uppercase tracking-[0.22em] text-white/45">
+              Focus
+            </p>
+            <p className="mt-3 text-3xl font-semibold text-[#fafafa]">
+              Backend
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#a1a1aa]">
+              APIs, data, deployment, reliability, and migration work.
+            </p>
           </div>
         </div>
       </div>
@@ -189,76 +277,30 @@ function HeroVisual() {
   );
 }
 
-function ProjectVisual({ variant }: { variant: string }) {
-  if (variant === "dashboard") {
-    return (
-      <div className="relative h-56 overflow-hidden bg-[#101010] p-4">
-        <div className="flex items-center justify-between border-b border-white/10 pb-3">
-          <div className="h-2 w-24 rounded-sm bg-white/20" />
-          <div className="flex gap-1">
-            <span className="size-2 rounded-full bg-[#f87171]" />
-            <span className="size-2 rounded-full bg-[#ef4444]" />
-          </div>
-        </div>
-        <div className="grid gap-3 pt-4">
-          <div className="grid grid-cols-3 gap-3">
-            <span className="h-16 rounded-sm bg-[#f87171]/20" />
-            <span className="h-16 rounded-sm bg-white/8" />
-            <span className="h-16 rounded-sm bg-[#ef4444]/25" />
-          </div>
-          <div className="flex h-24 items-end gap-2 rounded-sm border border-white/10 bg-black/25 p-3">
-            <span className="h-8 flex-1 rounded-sm bg-white/12" />
-            <span className="h-16 flex-1 rounded-sm bg-[#f87171]/50" />
-            <span className="h-12 flex-1 rounded-sm bg-white/12" />
-            <span className="h-20 flex-1 rounded-sm bg-[#ef4444]/60" />
-            <span className="h-14 flex-1 rounded-sm bg-white/12" />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (variant === "terminal") {
-    return (
-      <div className="h-56 overflow-hidden bg-[#090909] p-5 font-mono text-xs">
-        <div className="mb-4 flex gap-1.5">
-          <span className="size-2 rounded-full bg-white/25" />
-          <span className="size-2 rounded-full bg-white/25" />
-          <span className="size-2 rounded-full bg-[#f87171]" />
-        </div>
-        <div className="space-y-3 text-white/58">
-          <p>
-            <span className="text-[#ef4444]">$</span> pnpm test:contracts
-          </p>
-          <p>
-            <span className="text-[#f87171]">pass</span> workflow.graph.ts
-          </p>
-          <p>
-            <span className="text-[#f87171]">pass</span> release.pipeline.ts
-          </p>
-          <div className="h-px bg-white/10" />
-          <p className="text-white/40">generating typed client...</p>
-          <p>
-            <span className="text-[#f87171]">done</span> 18.4s
-          </p>
-        </div>
-      </div>
-    );
-  }
-
+function ArchitectureDiagram() {
   return (
-    <div className="relative h-56 overflow-hidden bg-[#111111]">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:34px_34px]" />
-      <span className="absolute left-8 top-9 size-16 rounded-md border border-[#f87171]/45 bg-[#f87171]/10" />
-      <span className="absolute right-10 top-14 size-20 rounded-md border border-[#ef4444]/45 bg-[#ef4444]/10" />
-      <span className="absolute bottom-9 left-1/3 size-24 rounded-md border border-white/20 bg-white/5" />
-      <span className="absolute left-[25%] top-[35%] h-px w-[42%] rotate-12 bg-white/20" />
-      <span className="absolute left-[47%] top-[55%] h-px w-[30%] -rotate-[35deg] bg-white/20" />
-      <div className="absolute bottom-4 left-4 right-4 flex items-end gap-2">
-        <span className="h-7 flex-1 rounded-sm bg-white/10" />
-        <span className="h-12 flex-1 rounded-sm bg-[#f87171]/35" />
-        <span className="h-9 flex-1 rounded-sm bg-white/10" />
-        <span className="h-16 flex-1 rounded-sm bg-[#ef4444]/45" />
+    <div className="rounded-md border border-white/10 bg-[#101010] p-5">
+      <div className="flex flex-col gap-3 md:flex-row md:items-center">
+        {architectureFlow.map((item, index) => (
+          <div key={item} className="contents md:flex md:flex-1 md:items-center">
+            <div className="rounded-md border border-white/10 bg-black/25 p-4 text-center md:min-h-28 md:flex-1">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#ef4444]">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-[#f4f4f5]">
+                {item}
+              </p>
+            </div>
+            {index < architectureFlow.length - 1 ? (
+              <div
+                className="hidden px-2 text-center font-mono text-sm text-white/30 md:block"
+                aria-hidden="true"
+              >
+                -&gt;
+              </div>
+            ) : null}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -267,26 +309,44 @@ function ProjectVisual({ variant }: { variant: string }) {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#050505] text-[#f4f4f5]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-[#f4f4f5] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#050505]"
+      >
+        Skip to content
+      </a>
+
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050505]/80 backdrop-blur-xl">
-        <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8">
+        <nav
+          className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8"
+          aria-label="Primary navigation"
+        >
           <a
             href="#top"
             className="text-sm font-semibold uppercase tracking-[0.24em] text-[#f4f4f5]"
           >
             Amirul
           </a>
-          <div className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a1a1aa] md:flex">
+          <div className="hidden items-center gap-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#a1a1aa] lg:flex">
             <a className="transition hover:text-[#f4f4f5]" href="#work">
               Work
             </a>
+            <a className="transition hover:text-[#f4f4f5]" href="#architecture">
+              Architecture
+            </a>
             <a className="transition hover:text-[#f4f4f5]" href="#stack">
-              Stack
+              Skills
             </a>
-            <a className="transition hover:text-[#f4f4f5]" href="#about">
-              About
+            <a className="transition hover:text-[#f4f4f5]" href="#timeline">
+              Timeline
             </a>
-            <a className="transition hover:text-[#f4f4f5]" href="#photography">
-              Photography
+            <a className="transition hover:text-[#f4f4f5]" href="#notes">
+              Notes
             </a>
             <a className="transition hover:text-[#f4f4f5]" href="#contact">
               Contact
@@ -303,110 +363,241 @@ export default function Home() {
 
       <section
         id="top"
-        className="relative overflow-hidden border-b border-white/10 px-5 pb-12 pt-28 sm:px-8 lg:pb-16"
+        className="relative overflow-hidden border-b border-white/10 px-5 pb-14 pt-28 sm:px-8 lg:pb-20"
       >
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#050505_0%,#101010_54%,#050505_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:96px_96px]" />
 
-        <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
+        <div
+          id="content"
+          className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
+        >
           <div className="max-w-3xl">
             <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
-              Software engineer / full-stack builder
+              Backend software engineer / Laravel / AWS
             </p>
             <h1 className="[font-family:var(--font-display)] text-7xl leading-none text-[#fafafa] sm:text-8xl lg:text-9xl">
               Amirul
             </h1>
             <p className="mt-8 max-w-2xl text-2xl leading-tight text-[#f4f4f5] sm:text-3xl">
-              I build web apps that are clear to use, easy to maintain, and
-              steady in production.
+              I build Laravel/PHP systems that are easier to operate, migrate,
+              and scale.
             </p>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#a1a1aa]">
-              I work across frontend and backend: React and Next.js on the
-              interface side, Laravel, APIs, databases, and AWS behind it.
+              Backend-focused software engineer with 3+ years of experience
+              across Laravel, MySQL, AWS, Ubuntu, Nginx, JavaScript, and
+              production application support.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#work"
+                href="/amirul-resume.pdf"
                 className="inline-flex h-12 items-center justify-center rounded-sm bg-[#f4f4f5] px-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0b0b0c] transition hover:bg-[#f87171]"
               >
-                View my work
+                Download resume
               </a>
               <a
-                href="#photography"
+                href="#contact"
                 className="inline-flex h-12 items-center justify-center rounded-sm border border-white/20 px-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f4f4f5] transition hover:border-[#ef4444] hover:text-[#ef4444]"
               >
-                Photography
+                Talk backend systems
               </a>
             </div>
           </div>
 
-          <HeroVisual />
+          <HeroSystemVisual />
+        </div>
+      </section>
+
+      <section className="border-b border-white/10 bg-[#080808] px-5 py-10 sm:px-8">
+        <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {proofPoints.map((point) => (
+            <div
+              key={point.label}
+              className="rounded-md border border-white/10 bg-[#101010] p-5"
+            >
+              <p className="[font-family:var(--font-display)] text-4xl leading-none text-[#fafafa]">
+                {point.value}
+              </p>
+              <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
+                {point.label}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-[#a1a1aa]">
+                {point.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="work"
+        className="border-b border-white/10 bg-[#0b0b0c] px-5 py-20 sm:px-8 lg:py-28"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 grid gap-6 md:grid-cols-[0.75fr_1fr] md:items-end">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
+                Featured Engineering Work
+              </p>
+              <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
+                Case studies that prove backend depth.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-base leading-8 text-[#a1a1aa]">
+              The goal is to show the problem, technical challenge, solution,
+              and impact behind each project. Code can stay private when it is
+              company-confidential; the engineering thinking should still be
+              visible.
+            </p>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-2">
+            {engineeringWork.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-md border border-white/10 bg-[#101010] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#f87171]/45"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
+                  {item.eyebrow}
+                </p>
+                <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#f4f4f5]">
+                  {item.title}
+                </h3>
+                <div className="mt-6 grid gap-4">
+                  {[
+                    ["Problem", item.problem],
+                    ["Challenge", item.challenge],
+                    ["Solution", item.solution],
+                    ["Impact", item.impact],
+                  ].map(([label, text]) => (
+                    <div
+                      key={label}
+                      className="border-l border-[#ef4444]/40 pl-4"
+                    >
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                        {label}
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
+                        {text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {item.stack.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-sm border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#e4e4e7]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-6 border-t border-white/10 pt-4 text-xs uppercase tracking-[0.18em] text-white/40">
+                  Code unavailable where company confidentiality applies.
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="architecture"
+        className="border-b border-white/10 bg-[#050505] px-5 py-20 sm:px-8 lg:py-28"
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
+              Architecture
+            </p>
+            <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
+              Show the system, not just the screen.
+            </h2>
+            <p className="mt-6 text-base leading-8 text-[#a1a1aa]">
+              Recruiters should see the path from request to runtime: DNS,
+              frontend host, Laravel API, AWS services, database, storage, and
+              operational concerns.
+            </p>
+          </div>
+          <ArchitectureDiagram />
         </div>
       </section>
 
       <section
         id="stack"
-        className="border-b border-white/10 bg-[#080808] px-5 py-12 sm:px-8"
+        className="border-b border-white/10 bg-[#080808] px-5 py-16 sm:px-8"
       >
         <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
+                Skills
+              </p>
+              <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
+                Backend-led toolkit.
+              </h2>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#a1a1aa]">
+              Grouped by how the work actually happens, not as a wall of logos
+              or skill percentages.
+            </p>
+          </div>
           <SignalCarousel items={signalCards} />
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {skillGroups.map((group) => (
+              <section
+                key={group.title}
+                className="rounded-md border border-white/10 bg-[#101010] p-5"
+              >
+                <h3 className="text-lg font-semibold text-[#fafafa]">
+                  {group.title}
+                </h3>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-sm border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#e4e4e7]"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="work" className="border-b border-white/10 bg-[#0b0b0c]">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
-          <div className="mb-12 grid gap-6 md:grid-cols-[0.75fr_1fr] md:items-end">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
-                Portfolio
-              </p>
-              <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-                Engineering projects
-              </h2>
-            </div>
-            <p className="max-w-2xl text-base leading-8 text-[#a1a1aa]">
-              A few examples of the kind of work I enjoy: useful dashboards,
-              backend services, internal tools, and systems that need to stay
-              understandable as they grow.
+      <section
+        id="timeline"
+        className="border-b border-white/10 bg-[#0f0f10] px-5 py-20 sm:px-8 lg:py-28"
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
+              Engineering Timeline
             </p>
+            <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
+              The direction is backend and platform engineering.
+            </h2>
           </div>
-
-          <div className="grid gap-5 lg:grid-cols-3">
-            {projects.map((project) => (
+          <div className="grid gap-4">
+            {timeline.map((item) => (
               <article
-                key={project.name}
-                className="group overflow-hidden rounded-md border border-white/10 bg-[#101010] transition duration-300 hover:-translate-y-1 hover:border-[#f87171]/45"
+                key={item.period}
+                className="grid gap-4 rounded-md border border-white/10 bg-[#101010] p-5 sm:grid-cols-[150px_1fr]"
               >
-                <ProjectVisual variant={project.variant} />
-                <div className="flex min-h-80 flex-col p-6">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#ef4444]">
-                    {project.label}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold leading-tight text-[#f4f4f5]">
-                    {project.name}
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ef4444]">
+                  {item.period}
+                </p>
+                <div>
+                  <h3 className="text-lg font-semibold text-[#f4f4f5]">
+                    {item.title}
                   </h3>
-                  <p className="mt-4 flex-1 text-sm leading-7 text-[#a1a1aa]">
-                    {project.summary}
+                  <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
+                    {item.text}
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-sm border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#e4e4e7]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5 text-xs uppercase tracking-[0.18em]">
-                    <span className="text-[#a1a1aa]">{project.metric}</span>
-                    <a
-                      href="#contact"
-                      className="font-semibold text-[#f4f4f5] transition group-hover:text-[#f87171]"
-                    >
-                      Contact {"->"}
-                    </a>
-                  </div>
                 </div>
               </article>
             ))}
@@ -414,71 +605,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-white/10 bg-[#0f0f10]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:py-28">
+      <section
+        id="notes"
+        className="border-b border-white/10 bg-[#050505] px-5 py-20 sm:px-8 lg:py-28"
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
-              Toolkit
+              Engineering Notes
             </p>
-            <h2 className="mt-4 max-w-xl [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              Tools I use often.
+            <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
+              Write about the hard parts.
             </h2>
+            <p className="mt-6 text-base leading-8 text-[#a1a1aa]">
+              These topics are strong blog or case-study material because they
+              show decision-making, debugging, and trade-offs.
+            </p>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {capabilities.map((skill) => (
+          <div className="grid gap-3">
+            {notes.map((note) => (
               <div
-                key={skill}
-                className="rounded-md border border-white/10 bg-[#171717] px-4 py-4 text-sm font-medium text-[#e4e4e7]"
+                key={note}
+                className="rounded-md border border-white/10 bg-[#101010] p-5 text-sm leading-7 text-[#d4d4d8]"
               >
-                {skill}
+                {note}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="photography" className="border-b border-white/10 bg-[#050505]">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
-          <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ef4444]">
-                Observations
-              </p>
-              <h2 className="mt-4 [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-                Photography, after hours
-              </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#a1a1aa]">
-                A hobby, not the main act. I use photography to slow down,
-                notice light, and get better at composition.
-              </p>
-            </div>
-            <a
-              href="#contact"
-              className="w-fit border-b border-[#ef4444] pb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f4f4f5] transition hover:text-[#ef4444]"
-            >
-              Get in touch
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-            {photoFrames.map((frame) => (
-              <figure
-                key={frame.title}
-                className="group relative aspect-square overflow-hidden rounded-md border border-white/10 bg-[#101010]"
-              >
-                <div
-                  className={`absolute inset-0 transition duration-700 group-hover:scale-105 ${frame.style}`}
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.72),rgba(0,0,0,0.06)_62%)]" />
-                <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                  <p className="text-sm font-semibold text-[#f4f4f5]">
-                    {frame.title}
-                  </p>
-                  <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-white/55">
-                    {frame.location}
-                  </p>
-                </figcaption>
-              </figure>
             ))}
           </div>
         </div>
@@ -499,23 +650,25 @@ export default function Home() {
                 <div className="rounded-md border border-white/10 bg-black/25 p-5">
                   <p className="text-5xl font-semibold text-[#fafafa]">A</p>
                   <p className="mt-6 max-w-sm text-sm leading-7 text-[#a1a1aa]">
-                    Software engineer who enjoys clear systems, tidy
-                    interfaces, and photography after work.
+                    Backend-focused engineer building from application code
+                    down to database, deployment, and operations.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-md border border-white/10 bg-white/[0.04] p-4">
-                    <p className="text-3xl font-semibold text-[#f87171]">UI</p>
+                    <p className="text-3xl font-semibold text-[#f87171]">
+                      API
+                    </p>
                     <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
-                      Product surfaces
+                      Laravel services
                     </p>
                   </div>
                   <div className="rounded-md border border-white/10 bg-white/[0.04] p-4">
                     <p className="text-3xl font-semibold text-[#ef4444]">
-                      API
+                      Ops
                     </p>
                     <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/45">
-                      Service contracts
+                      AWS and Linux
                     </p>
                   </div>
                 </div>
@@ -529,30 +682,18 @@ export default function Home() {
               About
             </p>
             <h2 className="mt-4 max-w-2xl [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              I like building the useful parts first, then making them easier
-              to use.
+              I want the work to survive real production use.
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#a1a1aa]">
-              I care about software that makes sense from the first screen and
-              still behaves well after release. Most of my work is a mix of
-              planning flows, building components, connecting APIs, and fixing
-              the rough parts that users notice.
+              My strongest work is backend-heavy: Laravel and PHP applications,
+              MySQL data flows, AWS services, Linux/Nginx environments, and the
+              debugging that happens when software meets real users.
             </p>
-            <div className="mt-10 grid gap-4">
-              {approach.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-md border border-white/10 bg-[#101010] p-5"
-                >
-                  <h3 className="text-lg font-semibold text-[#f4f4f5]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-7 text-[#a1a1aa]">
-                    {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[#a1a1aa]">
+              The next step I am building toward is backend/platform
+              engineering: scalable systems, cloud infrastructure, distributed
+              applications, and R&D-style problem solving.
+            </p>
           </div>
         </div>
       </section>
@@ -564,7 +705,7 @@ export default function Home() {
               Contact
             </p>
             <h2 className="mt-3 max-w-2xl [font-family:var(--font-display)] text-3xl leading-tight text-[#fafafa] sm:text-4xl">
-              Have a project or role in mind? Send me a note.
+              Interested in scalable backend systems? Let&apos;s talk.
             </h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -575,10 +716,10 @@ export default function Home() {
               Email me
             </a>
             <a
-              href="https://github.com/"
+              href="/amirul-resume.pdf"
               className="inline-flex h-12 items-center justify-center rounded-sm border border-white/15 px-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f4f4f5] transition hover:border-[#ef4444] hover:text-[#ef4444]"
             >
-              GitHub
+              Resume
             </a>
           </div>
         </div>

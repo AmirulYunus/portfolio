@@ -44,11 +44,19 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
       return;
     }
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
     const setGroupWidth = () => {
       groupWidthRef.current = group.getBoundingClientRect().width;
-      if (offsetRef.current === 0 && groupWidthRef.current > 0) {
+
+      if (prefersReducedMotion) {
+        offsetRef.current = 0;
+      } else if (offsetRef.current === 0 && groupWidthRef.current > 0) {
         offsetRef.current = -groupWidthRef.current;
       }
+
       track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
     };
 
@@ -95,7 +103,10 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
     setGroupWidth();
     const resizeObserver = new ResizeObserver(setGroupWidth);
     resizeObserver.observe(group);
-    animationFrameRef.current = requestAnimationFrame(animate);
+
+    if (!prefersReducedMotion) {
+      animationFrameRef.current = requestAnimationFrame(animate);
+    }
 
     return () => {
       isMounted = false;
