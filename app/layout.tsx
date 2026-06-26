@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Amirul | Software Engineer",
   description:
-    "A dark, software-first portfolio for engineering projects, product interfaces, and photography notes.",
+    "Portfolio of Amirul, a software engineer working with full-stack web apps, Laravel, Next.js, AWS, and photography on the side.",
 };
 
 export default function RootLayout({

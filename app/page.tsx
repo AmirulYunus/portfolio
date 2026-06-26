@@ -5,27 +5,27 @@ const projects = [
     name: "Distributed Systems Platform",
     label: "Backend Architecture",
     summary:
-      "A service-oriented platform for ingesting events, processing queues, and keeping operational workflows observable under load.",
+      "Backend services for event intake, queue processing, and basic monitoring so the team could see what was happening under load.",
     tags: ["TypeScript", "Node.js", "Postgres"],
-    metric: "99.9% uptime target",
+    metric: "Queues and monitoring",
     variant: "network",
   },
   {
     name: "Product Operations Dashboard",
     label: "Frontend Engineering",
     summary:
-      "A dense, responsive workspace that turns product metrics, cases, and team handoffs into a clear daily operating surface.",
+      "A dashboard for product metrics, support cases, and handoffs, built for daily use by people who need quick answers.",
     tags: ["Next.js", "React", "Tailwind"],
-    metric: "12 core workflows",
+    metric: "Daily team workflows",
     variant: "dashboard",
   },
   {
     name: "Developer Workflow Tooling",
     label: "Internal Tools",
     summary:
-      "Automation and UI tooling that reduced repetitive engineering tasks and gave teams faster feedback during delivery.",
+      "Small tools and automation for repeated engineering tasks, with faster checks during reviews and releases.",
     tags: ["APIs", "CI/CD", "DX"],
-    metric: "Faster reviews",
+    metric: "Review support",
     variant: "terminal",
   },
 ];
@@ -45,47 +45,47 @@ const signalCards = [
   {
     label: "Frontend",
     value: "React / Next.js",
-    detail: "Building fast, modern interfaces with the App Router and reusable components.",
+    detail: "Building responsive screens with reusable components and the App Router.",
   },
   {
     label: "Backend",
     value: "Laravel",
-    detail: "My primary stack for building enterprise APIs, business logic, and integrations.",
+    detail: "My main backend stack for APIs, business logic, and integrations.",
   },
   {
     label: "Cloud",
     value: "AWS",
-    detail: "Experienced with EC2, RDS, S3, ALB, and CloudWatch from production environments.",
+    detail: "Hands-on with EC2, RDS, S3, ALB, and CloudWatch in production work.",
   },
   {
     label: "Database",
     value: "MySQL",
-    detail: "Designing schemas, optimizing queries, and powering analytics-driven features.",
+    detail: "Designing schemas, improving queries, and supporting reporting features.",
   },
   {
     label: "Learning",
-    value: "Always Improving",
-    detail: "Currently exploring Docker, Kubernetes, system design, and AWS Solutions Architect.",
+    value: "In Progress",
+    detail: "Currently learning more Docker, Kubernetes, system design, and AWS architecture.",
   },
   {
     label: "Beyond Code",
     value: "Runner & Gamer",
-    detail: "Morning runs, story-driven games, and continuously learning new technologies.",
+    detail: "Morning runs, story-driven games, and time behind a camera.",
   },
 ];
 
 const approach = [
   {
-    title: "Architecture before decoration",
-    text: "I start with the structure: flows, states, data boundaries, and failure paths. The interface gets sharper when the system underneath is clear.",
+    title: "Start with the structure",
+    text: "I like to understand the flow, the data, and the failure cases before polishing the screen.",
   },
   {
-    title: "Interfaces that respect attention",
-    text: "I prefer compact, readable screens that help people scan, compare, decide, and continue without unnecessary motion or noise.",
+    title: "Keep screens readable",
+    text: "I prefer interfaces that are easy to scan, especially for dashboards, forms, and admin tools.",
   },
   {
-    title: "Details that survive production",
-    text: "I care about loading states, empty states, accessibility, edge cases, and the maintainability of the components behind the polish.",
+    title: "Do the small things properly",
+    text: "Loading states, empty states, access checks, and edge cases matter once real people start using the work.",
   },
 ];
 
@@ -317,26 +317,25 @@ export default function Home() {
               Amirul
             </h1>
             <p className="mt-8 max-w-2xl text-2xl leading-tight text-[#f4f4f5] sm:text-3xl">
-              I build product-grade web systems with clean architecture,
-              sharp interfaces, and reliable delivery.
+              I build web apps that are clear to use, easy to maintain, and
+              steady in production.
             </p>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#a1a1aa]">
-              My work sits between frontend craft and full-stack execution:
-              translating product intent into typed interfaces, stable APIs,
-              and maintainable software.
+              I work across frontend and backend: React and Next.js on the
+              interface side, Laravel, APIs, databases, and AWS behind it.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#work"
                 className="inline-flex h-12 items-center justify-center rounded-sm bg-[#f4f4f5] px-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0b0b0c] transition hover:bg-[#f87171]"
               >
-                View engineering work
+                View my work
               </a>
               <a
                 href="#photography"
                 className="inline-flex h-12 items-center justify-center rounded-sm border border-white/20 px-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f4f4f5] transition hover:border-[#ef4444] hover:text-[#ef4444]"
               >
-                Photography notes
+                Photography
               </a>
             </div>
           </div>
@@ -366,9 +365,9 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-[#a1a1aa]">
-              A software-first portfolio should prove how you think: the
-              constraints you handled, the systems you shaped, and the product
-              outcomes your implementation supported.
+              A few examples of the kind of work I enjoy: useful dashboards,
+              backend services, internal tools, and systems that need to stay
+              understandable as they grow.
             </p>
           </div>
 
@@ -405,7 +404,7 @@ export default function Home() {
                       href="#contact"
                       className="font-semibold text-[#f4f4f5] transition group-hover:text-[#f87171]"
                     >
-                      Discuss {"->"}
+                      Contact {"->"}
                     </a>
                   </div>
                 </div>
@@ -422,7 +421,7 @@ export default function Home() {
               Toolkit
             </p>
             <h2 className="mt-4 max-w-xl [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              Technical range without losing product focus.
+              Tools I use often.
             </h2>
           </div>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -449,15 +448,15 @@ export default function Home() {
                 Photography, after hours
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-[#a1a1aa]">
-                A hobby, not the headline. A place to study light, texture, and
-                composition when I step away from software.
+                A hobby, not the main act. I use photography to slow down,
+                notice light, and get better at composition.
               </p>
             </div>
             <a
               href="#contact"
               className="w-fit border-b border-[#ef4444] pb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f4f4f5] transition hover:text-[#ef4444]"
             >
-              Ask about prints
+              Get in touch
             </a>
           </div>
 
@@ -500,8 +499,8 @@ export default function Home() {
                 <div className="rounded-md border border-white/10 bg-black/25 p-5">
                   <p className="text-5xl font-semibold text-[#fafafa]">A</p>
                   <p className="mt-6 max-w-sm text-sm leading-7 text-[#a1a1aa]">
-                    Software engineer with an eye for systems, interface
-                    clarity, and the visual discipline learned from photography.
+                    Software engineer who enjoys clear systems, tidy
+                    interfaces, and photography after work.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -530,15 +529,14 @@ export default function Home() {
               About
             </p>
             <h2 className="mt-4 max-w-2xl [font-family:var(--font-display)] text-4xl leading-tight text-[#fafafa] sm:text-5xl">
-              Building the useful parts first, then refining until they feel
-              inevitable.
+              I like building the useful parts first, then making them easier
+              to use.
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#a1a1aa]">
-              I like software that is understandable from the first screen and
-              dependable after the first release. My work sits between product
-              thinking and implementation: shaping flows, building components,
-              connecting APIs, and tightening the experience until it holds
-              together.
+              I care about software that makes sense from the first screen and
+              still behaves well after release. Most of my work is a mix of
+              planning flows, building components, connecting APIs, and fixing
+              the rough parts that users notice.
             </p>
             <div className="mt-10 grid gap-4">
               {approach.map((item) => (
@@ -566,12 +564,12 @@ export default function Home() {
               Contact
             </p>
             <h2 className="mt-3 max-w-2xl [font-family:var(--font-display)] text-3xl leading-tight text-[#fafafa] sm:text-4xl">
-              Let us build something focused, fast, and maintainable.
+              Have a project or role in mind? Send me a note.
             </h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
-              href="mailto:hello@example.com"
+              href="mailto:amirulyunus29@gmail.com"
               className="inline-flex h-12 items-center justify-center rounded-sm bg-[#f4f4f5] px-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#0b0b0c] transition hover:bg-[#f87171]"
             >
               Email me
