@@ -1,6 +1,6 @@
 "use client";
 
-import type { PointerEvent } from "react";
+import type { PointerEvent, WheelEvent } from "react";
 import { useEffect, useRef } from "react";
 
 type SignalCard = {
@@ -13,7 +13,7 @@ type SignalCarouselProps = {
   items: SignalCard[];
 };
 
-const BASE_SPEED = -24;
+const BASE_SPEED = 24;
 const MOMENTUM_DECAY = 0.94;
 const MAX_RELEASE_SPEED = 900;
 const REPEAT_COUNT = 3;
@@ -24,9 +24,7 @@ function clamp(value: number, min: number, max: number) {
 
 export function SignalCarousel({ items }: SignalCarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const groupRef = useRef<HTMLDivElement>(null);
-  const offsetRef = useRef(0);
   const speedRef = useRef(0);
   const groupWidthRef = useRef(0);
   const lastFrameRef = useRef<number | null>(null);
@@ -38,9 +36,9 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
   });
 
   useEffect(() => {
-    const track = trackRef.current;
+    const carousel = carouselRef.current;
     const group = groupRef.current;
-    if (!track || !group) {
+    if (!carousel || !group) {
       return;
     }
 
@@ -51,27 +49,23 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
     const setGroupWidth = () => {
       groupWidthRef.current = group.getBoundingClientRect().width;
 
-      if (prefersReducedMotion) {
-        offsetRef.current = 0;
-      } else if (offsetRef.current === 0 && groupWidthRef.current > 0) {
-        offsetRef.current = -groupWidthRef.current;
+      if (groupWidthRef.current > 0 && carousel.scrollLeft === 0) {
+        carousel.scrollLeft = groupWidthRef.current;
       }
-
-      track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
     };
 
-    const wrapOffset = () => {
+    const wrapScroll = () => {
       const width = groupWidthRef.current;
       if (!width) {
         return;
       }
 
-      while (offsetRef.current <= -width * 2) {
-        offsetRef.current += width;
+      while (carousel.scrollLeft >= width * 2) {
+        carousel.scrollLeft -= width;
       }
 
-      while (offsetRef.current >= 0) {
-        offsetRef.current -= width;
+      while (carousel.scrollLeft <= 0) {
+        carousel.scrollLeft += width;
       }
     };
 
@@ -87,7 +81,7 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
       lastFrameRef.current = time;
 
       if (!dragRef.current.active) {
-        offsetRef.current += (BASE_SPEED + speedRef.current) * deltaSeconds;
+        carousel.scrollLeft += (BASE_SPEED + speedRef.current) * deltaSeconds;
         speedRef.current *= Math.pow(MOMENTUM_DECAY, deltaSeconds * 60);
 
         if (Math.abs(speedRef.current) < 2) {
@@ -95,8 +89,7 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
         }
       }
 
-      wrapOffset();
-      track.style.transform = `translate3d(${offsetRef.current}px, 0, 0)`;
+      wrapScroll();
       animationFrameRef.current = requestAnimationFrame(animate);
     };
 
@@ -141,9 +134,9 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
     const deltaX = event.clientX - dragRef.current.lastX;
     const deltaMs = Math.max(now - dragRef.current.lastTime, 16);
 
-    offsetRef.current += deltaX;
+    event.currentTarget.scrollLeft -= deltaX;
     speedRef.current = clamp(
-      (deltaX / deltaMs) * 1000 * 1.4,
+      (-deltaX / deltaMs) * 1000 * 1.4,
       -MAX_RELEASE_SPEED,
       MAX_RELEASE_SPEED,
     );
@@ -165,6 +158,15 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
     }
   };
 
+  const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+      return;
+    }
+
+    event.currentTarget.scrollLeft += event.deltaY;
+    event.preventDefault();
+  };
+
   return (
     <div
       ref={carouselRef}
@@ -174,10 +176,11 @@ export function SignalCarousel({ items }: SignalCarouselProps) {
       onPointerLeave={stopDragging}
       onPointerMove={handlePointerMove}
       onPointerUp={stopDragging}
+      onWheel={handleWheel}
       role="region"
       aria-label="Technology stack carousel"
     >
-      <div ref={trackRef} className="signal-carousel__track">
+      <div className="signal-carousel__track">
         {Array.from({ length: REPEAT_COUNT }, (_, group) => (
           <div
             key={group}

@@ -49,8 +49,11 @@ html {
 
 .signal-carousel {
   cursor: grab;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
+  scrollbar-color: rgba(239, 68, 68, 0.55) rgba(255, 255, 255, 0.08);
+  scrollbar-width: thin;
   touch-action: pan-y;
   user-select: none;
   width: 100%;
@@ -58,6 +61,19 @@ html {
 
 .signal-carousel[data-dragging] {
   cursor: grabbing;
+}
+
+.signal-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.signal-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.signal-carousel::-webkit-scrollbar-thumb {
+  background: rgba(239, 68, 68, 0.55);
+  border-radius: 999px;
 }
 
 .signal-carousel::before,

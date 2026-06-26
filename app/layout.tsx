@@ -5,16 +5,16 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Amirul | Backend Software Engineer",
+  title: "Amirul | Production Backend Engineer",
   description:
-    "Backend-focused software engineer with 3+ years of experience across Laravel, PHP, MySQL, AWS, Ubuntu, Nginx, and production systems.",
+    "Backend engineer with 3+ years across Laravel, PHP, MySQL, AWS, Linux, Nginx, REST APIs, release engineering, and production support.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Amirul | Backend Software Engineer",
+    title: "Amirul | Production Backend Engineer",
     description:
-      "Laravel, PHP, MySQL, AWS, Ubuntu, Nginx, backend systems, migrations, and platform engineering direction.",
+      "Laravel/PHP systems, MySQL data flows, AWS infrastructure, weekly releases, production debugging, and backend automation.",
     url: "/",
     siteName: "Amirul Portfolio",
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Amirul backend software engineer portfolio",
+        alt: "Amirul production backend engineer portfolio",
       },
     ],
     locale: "en_US",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amirul | Backend Software Engineer",
+    title: "Amirul | Production Backend Engineer",
     description:
-      "Backend-focused portfolio for Laravel, PHP, MySQL, AWS, and platform engineering roles.",
+      "Backend portfolio for Laravel, PHP, MySQL, AWS, releases, debugging, and production systems.",
     images: ["/opengraph-image"],
   },
 };
